@@ -3,14 +3,27 @@
 //creamos el array donde estaran los amigos guardados
 let amigos=[];
 
-//creamos el elemento aqui con el boton
-
 
 //agarramos lo que el usuario ingrese en la interfaz
-const boton=document.querySelector(".button-add");
-
+//creamos la variable para que se limpie despues de ingresar algo automaticamente
+const seccion=document.querySelector(".input-section")
+const listaamigos=document.getElementById("listaAmigos")
+const boton=document.querySelector(".button-add")
+const ingreso=document.getElementById("amigo")
 boton.addEventListener("click", function(){
-   if (boton==""){
-       alert("Por favor, ingrese un nombre");
-    }
+if (ingreso.value.trim()==""){
+    alert("ingrese algo")
+}else{
+    amigos.push(ingreso.value.trim())
+    console.log(amigos)
+   ingreso.value="";
+
+   listaamigos.innerHTML=""; //aqui se usa para limpiar por si acaso
+   
+   amigos.forEach(function(nombre) {
+    const li = document.createElement('li');
+    li.textContent = nombre;
+    listaamigos.appendChild(li);
+});
+}
 })

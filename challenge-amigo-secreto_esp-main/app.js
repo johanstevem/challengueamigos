@@ -10,5 +10,7 @@ let amigos=[];
 const boton=document.querySelector(".button-add");
 
 boton.addEventListener("click", function(){
-    alert("funciona")
+   if (boton==""){
+       alert("Por favor, ingrese un nombre");
+    }
 })
